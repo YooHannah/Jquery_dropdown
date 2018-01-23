@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="dist/dropdown.css">
+</head>
+<body>
+ <select id='uni'>
+    <option value="">请选择</option>
+    <option value="101">夕阳</option>
+    <option value="102">老树</option>
+    <option value="103">昏鸦</option>
+    <option value="104">小桥</option>
+    <option value="105">流水</option>
+    <option value="106">人家</option>
+    <option value="107">古道</option>
+    <option value="108">西风</option>
+    <option value="109">瘦马</option>
+    <option value="110">天涯</option>
+</select>
+<script type="text/javascript" src='dist/jquery-3.2.1.min.js'></script>
+<script type="text/javascript" src='dist/dropdown.js'></script>
+</body>
+</html>
+<script>
+$('select').Dropdown();
+$('#uni').change(function(){
+	console.log($(this)[0].value)
+})
+</script>
