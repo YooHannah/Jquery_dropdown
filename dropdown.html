@@ -20,6 +20,19 @@
     <option value="109">瘦马</option>
     <option value="110">天涯</option>
 </select>
+<select id='uni2'>
+    <option value="">请选择</option>
+    <option value="101">夕阳</option>
+    <option value="102">老树</option>
+    <option value="103">昏鸦</option>
+    <option value="104">小桥</option>
+    <option value="105">流水</option>
+    <option value="106">人家</option>
+    <option value="107">古道</option>
+    <option value="108">西风</option>
+    <option value="109">瘦马</option>
+    <option value="110">天涯</option>
+</select>
 <script type="text/javascript" src='dist/jquery-3.2.1.min.js'></script>
 <script type="text/javascript" src='dist/dropdown.js'></script>
 </body>
@@ -28,5 +41,8 @@
 $('select').Dropdown();
 $('#uni').change(function(){
 	console.log($(this)[0].value)
+})
+$('#uni2').change(function(){
+  console.log($(this)[0].value+1)
 })
 </script>
