@@ -7,32 +7,41 @@
  <link rel="stylesheet" type="text/css" href="dist/dropdown.css">
 </head>
 <body>
- <select id='uni' style="width: 120px;padding-left: 50px;">
-    <option value="">请选择</option>
-    <option value="101">夕阳</option>
-    <option value="102">老树</option>
-    <option value="103">昏鸦</option>
-    <option value="104">小桥</option>
-    <option value="105">流水</option>
-    <option value="106">人家</option>
-    <option value="107">古道</option>
-    <option value="108">西风</option>
-    <option value="109">瘦马</option>
-    <option value="110">天涯</option>
-</select>
-<select id='uni2' style="margin-left: 20px">
-    <option value="">请选择</option>
-    <option value="101">夕阳</option>
-    <option value="102">老树</option>
-    <option value="103">昏鸦</option>
-    <option value="104">小桥</option>
-    <option value="105">流水</option>
-    <option value="106">人家</option>
-    <option value="107">古道</option>
-    <option value="108">西风</option>
-    <option value="109">瘦马</option>
-    <option value="110">天涯</option>
-</select>
+<div style="width: 100%">
+    <div style="float: left;">
+        <span style="padding-left: 50px">单选下拉框</span>
+        <select id='uni' style="width: 120px;margin-left: 20px">
+            <option value="">请选择</option>
+            <option value="101">夕阳</option>
+            <option value="102">老树</option>
+            <option value="103">昏鸦</option>
+            <option value="104">小桥</option>
+            <option value="105">流水</option>
+            <option value="106">人家</option>
+            <option value="107">古道</option>
+            <option value="108">西风</option>
+            <option value="109">瘦马</option>
+            <option value="110">天涯</option>
+        </select>
+   </div>
+    <div style="margin-left: 20px;float: left;">
+        <span>多选下拉框</span>
+        <select id='uni2' style="margin-left: 20px" class="Multiple aa" data-value='' data-obj='id,text'>
+            <option value="">请选择</option>
+            <option value="101">夕阳</option>
+            <option value="102">老树</option>
+            <option value="103">昏鸦</option>
+            <option value="104">小桥</option>
+            <option value="105">流水</option>
+            <option value="106">人家</option>
+            <option value="107">古道</option>
+            <option value="108">西风</option>
+            <option value="109">瘦马</option>
+            <option value="110">天涯</option>
+        </select>
+    </div>
+</div>
+
 <script type="text/javascript" src='dist/jquery-3.2.1.min.js'></script>
 <script type="text/javascript" src='dist/dropdown.js'></script>
 </body>
@@ -43,6 +52,6 @@ $('#uni').change(function(){
 	console.log($(this)[0].value)
 })
 $('#uni2').change(function(){
-  console.log($(this)[0].value+1)
+ console.log($(this).data('value'))
 })
 </script>

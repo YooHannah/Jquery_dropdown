@@ -35,6 +35,7 @@ select[hidden],select[hidden]+.ui-select {
 .ui-select-button {
     display: block;
     height: 20px;
+    max-width: 120px;
     line-height: 20px;
     padding: 9px 27px 9px 12px;
     color: #4c5161;
