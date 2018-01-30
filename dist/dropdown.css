@@ -87,7 +87,7 @@ select[hidden],select[hidden]+.ui-select {
 }
 
 .ui-select-datalist {
-    position: absolute;
+    /*position: absolute;*/
     left: 0;
     right: 0;
     top: 39px;

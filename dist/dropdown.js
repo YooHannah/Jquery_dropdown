@@ -13,8 +13,8 @@
                     list+='</div>';
                     let btn = '<a href="javascript:" class="ui-select-button _">'+
                     '<span class="ui-select-text">请选择</span><i class="ui-select-icon"></i></a>';
-                    $(this).hide().after('<div class="ui-select">'+btn+list+'<div>');
-
+                    let style=$(this).attr('style');/* 将定制style传递进来  */
+                    $(this).hide().after('<div class="ui-select" style="'+style+'">'+btn+list+'<div>');
                     /*  选择框以按钮呈现添加点击事件 */
                     $(this).next().find('a._').on("click", function() {
                         $(this).parent().toggleClass('active');
