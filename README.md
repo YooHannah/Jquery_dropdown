@@ -8,7 +8,12 @@
 
 解决办法：使用this 代替对select标签的选定，然后使用循环对每一个select 进行替换和绑定事件
 
-2.原始select标签添加的style基础样式(例如width),没有进行同步处理，待解决。
+2.原始select标签添加的style基础样式(例如width),没有进行同步处理，已解决。
+
+解决办法:使用$().attr('style')获取定制style属性，然后在拼接html时将属性添加进去，
+
+同时将.ui-select-datalist原本的absolute属性去掉，否则按钮和下拉框位置发生错位
+
 
 待扩展方向
 1.多选
