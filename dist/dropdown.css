@@ -130,7 +130,8 @@ select[hidden],select[hidden]+.ui-select {
 .ui-select-datalist-li {
     display: block;
     line-height: 20px;
-    padding: 9px 12px;
+    padding: 6px 12px;
+    margin:3px 0px;
     color: #4c5161;
     background-color: #fff;
     text-overflow: ellipsis;
