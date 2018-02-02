@@ -169,3 +169,13 @@ select[hidden],select[hidden]+.ui-select {
 a{
     text-decoration:none
 }
+
+.ui-select-input{
+    width: 85%;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+.item{
+    display: none;
+}

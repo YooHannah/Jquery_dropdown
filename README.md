@@ -17,7 +17,7 @@
 
 扩展方向
 
-1.多选 初步完成
+1.多选 完成
 
 实现方法: 通过在select 标签中添加Multiple类判断要构建多选下拉框,将选择好的数据通过data-属性传递回原来select标签
 
@@ -25,7 +25,10 @@
 
 解决办法: 绑定下拉列表mouseleave事件,然后监听页面mouseup事件,执行关闭下拉列表,trigger callback,防止冒泡off掉页面mouseup事件;
 
-2.查询
+2.查询 完成
+
+实现方法：利用indexof判断选项是否符合查询条件,符合display：block,反之display：none
+
 
 待完善工作
 1.测试文件配置

@@ -2,21 +2,31 @@
          $.fn.Dropdown = function (options) {
                 this.each(function(){
                     let isMultiple = $(this).hasClass('Multiple'); //判断是不是多选
+                    let isSearch = $(this).hasClass('Search');
                     let olddata = '';
                     let SingleOlddata = '';
+                    let origindata = [];
 
                     /*初始化 根据元数据拼接 */
                     let list = "<div class='ui-select-datalist'>";
                     let btn = '<a href="javascript:" class="ui-select-button _">'+
                     '<span class="ui-select-text">请选择</span><i class="ui-select-icon"></i></a>';
+                    let inputbox = '<input type="" name="" class="ui-select-input">';
                     let style=$(this).attr('style');/* 将定制style传递进来  */
 
+                    if(isSearch){
+                        list+=inputbox;
+                    }
                     $(this).find('option').each(function(e){
                         if(e===0){
                             list+="<a href='javascript:' class='ui-select-datalist-li selected' data-index='"+e+"' data-value='"+this.value+"' data-text='"+this.text+"'>"+this.text+"</a>";
                         }else{
                             list+="<a href='javascript:' class='ui-select-datalist-li' data-index='"+e+"' data-value='"+this.value+"' data-text='"+this.text+"'>"+this.text+"</a>"
                         }
+                        origindata.push({
+                            value:this.value,
+                            text:this.text
+                             })
                     })
                     list+='</div>';
 
@@ -25,6 +35,20 @@
                     }else{
                          $(this).hide().after('<div class="ui-select" style="'+style+'">'+btn+list+'<div>');
                     }
+
+                     $(this).next().find('.ui-select-input').on("input", function() {
+                        let searchResult = [];
+                        let search = $(this)[0].value;
+                        let options = $(this).nextAll();
+                        for(let i=0;i<options.length;i++){
+                            if($(options[i]).data('value') !== ''){
+                                $(options[i]).css('display','block')
+                            }
+                            if($(options[i]).data('text').indexOf(search) === -1){
+                                $(options[i]).css('display','none')
+                            }
+                        }
+                     })
 
 
                     /*  选择框以按钮呈现添加点击事件 */
@@ -36,7 +60,6 @@
                         }
                         //下拉框打开关闭
                          $(this).parent().toggleClass('active');
-
                          if(!isMultiple && $(this).parent().hasClass('active')){ //单选 下拉框打开时获取现有值 关闭时做比较
                            SingleOlddata = $(this).parents('.ui-select').prev()[0].value;
                          }
@@ -47,7 +70,7 @@
                         if(isMultiple && !$(this).parent().hasClass('active')){ //多选关闭 判断是否触发change事件
                             let data = $(this).parents('.ui-select').prev().data('value');
                             let flag = false;
-                            if(data.length != olddata.length){
+                            if(olddata === undefined || data.length != olddata.length){
                                 flag = true;
                             }else{
                                 let length = data.length;
@@ -72,10 +95,10 @@
                                   tempobj.toggleClass('active');
                             }
                             $(this).off('mouseup');
-                            if(isMultiple){
+                            if(isMultiple){ //如果是多选判断是不是要触发change callback
                                 let data = tempobj.prev().data('value');
                                 let flag = false;
-                                if(data.length != olddata.length){
+                                if(olddata === undefined || data.length != olddata.length){
                                     flag = true;
                                 }else{
                                     let length = data.length;
@@ -96,9 +119,7 @@
                     /*给下拉框选项添加事件*/
                     $(this).next().find('.ui-select-datalist-li').on("click", function() {
                         let options =$(this).parent().find('a'); //获取全部列表
-
                         /* 单选下拉框*/
-
                         if(!isMultiple){
                             let number = $(this)[0].dataset.index;//获取点击目标index
                             options.each(function(e){ //选择列表更新状态
@@ -144,6 +165,9 @@
                             $(this).parents('.ui-select').prev().data('value',results) //传递选择参数
                         }
                     })
+
+
+
                 })
 	       	}
      })(window.jQuery);
