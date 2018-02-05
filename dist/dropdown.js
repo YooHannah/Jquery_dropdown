@@ -59,7 +59,7 @@
                            $(temp).css('display','none');
                         }
                         //下拉框打开关闭
-                         $(this).parent().toggleClass('active');
+                    $(this).parent().toggleClass('active');
                          if(!isMultiple && $(this).parent().hasClass('active')){ //单选 下拉框打开时获取现有值 关闭时做比较
                            SingleOlddata = $(this).parents('.ui-select').prev()[0].value;
                          }
@@ -88,13 +88,16 @@
                     })
 
                     /* 在下拉框外点击实现关闭下拉框*/
-                    $(this).next().find('.ui-select-datalist').on('mouseleave',function(){
+                    $(this).next().find('.ui-select-datalist').on('mouseleave',function(e){
                         let tempobj = $(this).parent();
-                        $(document).on('mouseup',function(){
+                        $(document).on('mouseup',function(e){
+                           if($(e.target).hasClass('ui-select-text')){ //如果是点击的按钮则不执行
+                             $(this).off('mouseup');
+                             return
+                           }
                             if(tempobj.hasClass('active')){
-                                  tempobj.toggleClass('active');
+                                tempobj.toggleClass('active');
                             }
-                            $(this).off('mouseup');
                             if(isMultiple){ //如果是多选判断是不是要触发change callback
                                 let data = tempobj.prev().data('value');
                                 let flag = false;
@@ -113,6 +116,7 @@
                                      tempobj.prev().trigger('change');//关闭下拉框时触发多选绑定事件
                                 }
                             }
+                            $(this).off('mouseup');
                         })
                     })
 
