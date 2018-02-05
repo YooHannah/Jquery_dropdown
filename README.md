@@ -25,6 +25,8 @@
 
 解决办法: 绑定下拉列表mouseleave事件,然后监听页面mouseup事件,执行关闭下拉列表,trigger callback,防止冒泡off掉页面mouseup事件;
 
+处理问题：点击列表外区域关闭列表时，如果点击的是button,会触发button事件，列表又被打开，所以在点击列表时判断是不是点击的按钮，如果点击的是按钮，则交给按钮事件处理
+
 2.查询 完成
 
 实现方法：利用indexof判断选项是否符合查询条件,符合display：block,反之display：none
