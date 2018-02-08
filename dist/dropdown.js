@@ -169,9 +169,6 @@
                             $(this).parents('.ui-select').prev().data('value',results) //传递选择参数
                         }
                     })
-
-
-
                 })
 	       	}
      })(window.jQuery);
