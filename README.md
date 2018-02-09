@@ -1,4 +1,5 @@
 # 练习使用Jquery写下拉框组件
+[![Build Status](https://www.travis-ci.org/YooHannah/Jquery_dropdown.svg?branch=master)](https://www.travis-ci.org/YooHannah/Jquery_dropdown)
 
 本次练习目的/效果，根据HTML文件select标签，更改原始标签样式，并保留基本功能
 
