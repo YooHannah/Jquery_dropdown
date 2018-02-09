@@ -33,6 +33,17 @@
 
 
 待完善工作
-1.测试文件配置
+1.测试文件配置 已完成
 2.压缩文件配置 已完成
+
+组件使用
+单选:不需要添加任何标志符，直接替换
+多选:需要添加Multiple 类，同时需要设置data-value用来接收选定结果
+查询:需要添加Search类
+
+效果如下
+![single](img/single.png)
+![multiple](img/multiple.png)
+![search](img/search.png)
+
 

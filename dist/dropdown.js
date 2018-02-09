@@ -45,7 +45,7 @@
                                 $(options[i]).css('display','block')
                             }
                             if($(options[i]).data('text').indexOf(search) === -1){
-                                $(options[i]).css('display','none')
+                                $(options[i]).css('display','none');
                             }
                         }
                      })
@@ -165,6 +165,9 @@
                                     }
                                 };
                             })
+                            if(textstr.length === 0){
+                                textstr = '请选择'
+                            }
                             $(this).parents('.ui-select').find('.ui-select-text').text(textstr); //更新按钮内容为选择内容
                             $(this).parents('.ui-select').prev().data('value',results) //传递选择参数
                         }
