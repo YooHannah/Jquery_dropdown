@@ -26,7 +26,7 @@
     "should": "^13.2.1"
   },
   "scripts": {
-    "test": "test"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
